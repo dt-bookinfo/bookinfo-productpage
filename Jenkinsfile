@@ -30,8 +30,7 @@ pipeline {
     stage('Docker push to registry'){
       steps {
         container('docker') {
-          withCredentials([usernamePassword(credentialsId: 'registry-creds', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
-            sh "docker login --username=${USER} --password=${TOKEN} https://${env.DOCKER_REGISTRY_URL}"
+          withDockerRegistry([ credentialsId: "registry-creds", url: "" ]) {
             sh "docker push ${env.DOCKER_REPO}:${env.TAG}"
           }
         }
