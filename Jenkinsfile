@@ -10,6 +10,7 @@ pipeline {
     DOCKER_REPO = "${env.DOCKER_REGISTRY_URL}/${env.APP_NAME}"
     TAG = "${env.VERSION}"
   }
+  stages {
     stage('Node build') {
       steps {
         checkout scm
