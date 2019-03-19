@@ -11,14 +11,6 @@ pipeline {
     TAG = "${env.VERSION}"
   }
   stages {
-    stage('Node build') {
-      steps {
-        checkout scm
-        container('nodejs') {
-          sh 'npm install'
-        }
-      }
-    }
     stage('Docker build') {
       steps {
         container('docker') {
