@@ -1,0 +1,9 @@
+# Visual Studio and other editor 
+.vs/
+.DS_Store
+.idea
+
+# Ignore npm installed packages	# Credentials
+/node_modules
+
+
